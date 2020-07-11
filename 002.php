@@ -6,14 +6,24 @@ class Movie{
         $url = "https://api.themoviedb.org/3/discover/movie?api_key=6ee5671a60dffcfba9b370c145061ef8&language=id-ID&region=ID&sort_by=popularity.asc&include_adult=false&include_video=false&page=1";
         $data = $this->http_request($url);
         $result = array_map(function($v){return($v["title"]);} , $data["results"]);
-        print_r($result);
+        echo "=== 10+ titles of Indonesian movies ===\n";
+        $no = 1;
+        foreach ($result as $title) {
+            echo $no.") ".$title."\n";
+            $no++;
+        }
     }
 
     function playlist_by_keanu_reeves(){
         $url = "https://api.themoviedb.org/3/person/6384/movie_credits?api_key=6ee5671a60dffcfba9b370c145061ef8&language=en-US";
         $data = $this->http_request($url);
         $result = array_map(function($v){return($v["title"]);}, $data['cast']);
-        print_r($result);
+        echo "=== Movie list played by Keanu Reeves ===\n";
+        $no = 1;
+        foreach ($result as $title) {
+            echo $no.") ".$title."\n";
+            $no++;
+        }
     }
 
     function played_by_robert_and_tom(){
@@ -27,14 +37,24 @@ class Movie{
                 }
             }
         }
-        print_r($result);
+        echo "=== movie list played by Robert Downey Jr. and Tom Holland ===\n";
+        $no = 1;
+        foreach ($result as $title) {
+            echo $no.") ".$title."\n";
+            $no++;
+        }
     }
 
     function popular_movies(){
         $url = "https://api.themoviedb.org/3/discover/movie?api_key=6ee5671a60dffcfba9b370c145061ef8&language=en-US&sort_by=popularity.asc&include_adult=false&include_video=false&page=1&primary_release_year=2016&vote_count.gte=7.5";
         $data = $this->http_request($url);
         $result = array_map(function($v){return($v['title']);}, $data['results']);
-        print_r($result);
+        echo "=== Popular movie list that released on 2016 and the votes above 7.5 ===\n";
+        $no = 1;
+        foreach ($result as $title) {
+            echo $no.") ".$title."\n";
+            $no++;
+        }
     }
 
     function play_by_robert_downey(){
