@@ -7,6 +7,12 @@ use Dompdf\Dompdf;
 
 class ComingSoon
 {
+
+	function __construct()
+	{
+		$this->getInfo();
+	}
+
 	function getInfo()
 	{
 		$html = file_get_html("http://www.cgv.id/en/loader/home_movie_list");
@@ -61,5 +67,4 @@ class ComingSoon
 	}
 }
 
-$cgv = new ComingSoon();
-$cgv->getInfo();
+new ComingSoon();
