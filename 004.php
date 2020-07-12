@@ -45,7 +45,7 @@ class ComingSoon
 
 	function save_to_pdf($info)
 	{
-		$infoFilm = "<body style='font-family:Comic Sans'>";
+		$infoFilm = "<body style='font-family:Arial'>";
 		foreach ($info as $value) {
 			$infoFilm .= "<hr>";
 			$infoFilm .= $value['title'] . "<br>";
@@ -54,7 +54,7 @@ class ComingSoon
 			$infoFilm .= $value['synopsis'] . "<br>";
 			$infoFilm .= "<hr>";
 		}
-		$infoFilm = "</body>";
+		$infoFilm .= "</body>";
 		$pdf = new Dompdf();
 		$pdf->load_html($infoFilm);
 		$pdf->setPaper('A4', 'portrait');
