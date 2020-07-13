@@ -45,13 +45,14 @@ class ComingSoon
 
 	function save_to_pdf($info)
 	{
-		$infoFilm = "<body style='font-family:Arial'>";
+		$infoFilm = "<body style='font-family:Helvetica'>";
 		$no = 1;
 		foreach ($info as $value) {
 			$infoFilm .= "<hr>";
 			$infoFilm .= $no.") ".$value['title'] . "<br>";
 			$infoFilm .= "<hr>";
 			$infoFilm .= $value['info'] . "<br>";
+			$infoFilm .= "<h4>Synopsis</h4>";
 			$infoFilm .= $value['synopsis'] . "<br>";
 			$infoFilm .= "<hr>";
 			$no++;
